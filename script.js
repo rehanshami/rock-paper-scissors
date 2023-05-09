@@ -48,6 +48,15 @@ function game () {
         console.log('------------------------------------------')
     }
     console.log("Computer score: " + computerWins + " Player score: " + playerWins);
+    if (computerWins>playerWins) {
+        console.log('Game over. Computer has won.');
+    }
+    else if (computerWins==playerWins) {
+        console.log('Game over. It\'s a tie' );
+    }
+    else {
+        console.log('Game over. You win.');
+    }
 }
 game();
 
