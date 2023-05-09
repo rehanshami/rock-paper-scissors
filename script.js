@@ -7,32 +7,26 @@
 // Second we want to convert player selection to 
 
 
-// console.log(playerSelection);
-
+// This function gets a random selection of rock, paper or scissors for the computer.
 function getComputerChoice() {
     const computerOptions = ['rock', 'paper', 'scissors'];
     const computerSelection = computerOptions[Math.floor(Math.random()*computerOptions.length)];
     return computerSelection;
 }
 
-console.log('Computer chooses' +' ' + getComputerChoice());
+
 let playerWins=0;
 let computerWins=0;
-function playRound (playerSelection, computerSelection) {
-    // Result where player wins
-    // Player chooses Rock, computer chooses scissors
-    // Player chooses Scissors, computer chooses paper
-    // Player chooses Paper, computer chooses scissors
-    // Player and computer same choice, is tie
-    // Else computer wins
 
-    // Player chooses Rock
+// Function that plays a single round of rock, paper or scissors
+// Function returns a string for the winner, loser and a tie
+function playRound (playerSelection, computerSelection) {
   
-    if (playerSelection==computerSelection) {
+    if (playerSelection ==computerSelection) {
         return "It's a tie."
     }
     
-    else if (playerSelection=='rock' && computerSelection=='scissors' || playerSelection=='scissors' && computerSelection=='paper' || playerSelection=='paper' && computerSelection=='rock') {
+    else if (playerSelection =='rock' && computerSelection=='scissors' || playerSelection =='scissors' && computerSelection=='paper' || playerSelection =='paper' && computerSelection=='rock') {
         playerWins++;
         return "You win!" + " " + playerSelection + " beats " + computerSelection;
     }
@@ -42,23 +36,16 @@ function playRound (playerSelection, computerSelection) {
     }
 
 }
-// const computerSelection = getComputerChoice();
-// console.log(playRound (playerSelection, computerSelection));
-
-
-
-
-// Function called game. Play a game of 5 rounds
-
 
 
 function game () {
     let gameRounds = 5;
   
     for (let i=0; i < gameRounds; i++) {
-        const playerSelection = prompt('Please enter your weapon, rock, paper or scissors');
+        const playerSelection = prompt('Please enter your weapon, rock, paper or scissors', 'Rock, paper or scissors').toLowerCase();
         const computerSelection = getComputerChoice();
         console.log(playRound (playerSelection, computerSelection));
+        console.log('------------------------------------------')
     }
     console.log("Computer score: " + computerWins + " Player score: " + playerWins);
 }
